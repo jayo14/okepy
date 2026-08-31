@@ -92,6 +92,7 @@ def test_no_auth_scaffold_uses_allowany(django_framework):
     _cleanup(target)
 
 
+@pytest.mark.slow
 def test_no_auth_health_check_accessible(tmp_path):
     """Generate a Django project without auth, run manage.py check -> exit 0."""
     cfg = ProjectConfig(

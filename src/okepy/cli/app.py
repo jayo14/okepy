@@ -7,17 +7,19 @@ from rich.table import Table
 
 from okepy import __version__
 from okepy.cli.commands.create import _create as create_app
+from okepy.cli.commands.init import init_cmd
 from okepy.core.registry import list_features, list_frameworks
 from okepy.utils.console import console
 
 app = typer.Typer(
     name="okepy",
-    help="Scaffold production-ready Python backend projects interactively — the Python create-vite.",
+    help="okepy — the production toolkit for Python backends and AI coding agents.",
     no_args_is_help=False,
     add_completion=True,
 )
 
 app.add_typer(create_app, name="create")
+app.command(name="init")(init_cmd)
 
 
 def _version_callback(value: bool) -> None:
@@ -37,7 +39,7 @@ def main(
         help="Show version and exit.",
     ),
 ) -> None:
-    """okepy — the Python equivalent of create-vite."""
+    """okepy — the production toolkit for Python backends and AI coding agents."""
 
 
 @app.command("list")
