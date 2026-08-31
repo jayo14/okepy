@@ -369,7 +369,7 @@ CELERY_TIMEZONE = "UTC"
             settings_path.write_text(content, encoding="utf-8")
 
         is_api = context.config.project_type in (ProjectType.API, ProjectType.HYBRID)
-        social_prefix = f"api/auth/social/" if is_api else "auth/social/"
+        social_prefix = "api/auth/social/" if is_api else "auth/social/"
         urls_path = project_dir / "config" / "urls.py"
         if urls_path.exists():
             content = urls_path.read_text(encoding="utf-8")
